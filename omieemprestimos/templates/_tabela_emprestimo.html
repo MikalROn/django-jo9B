@@ -1,0 +1,30 @@
+{% load static %}
+
+<table class='table table-striped' style="max-height: 300px; overflow-y: auto;">
+    <thead>
+        <tr>
+            <th> id </th>
+            <th> Data </th>
+            <th> Credor </th>
+            <th> Devedor </th>
+            <th> Valor </th>
+            <th> Status  </th>
+            <th> Abrir </th>
+        </tr>
+    </thead>
+    <tbody class="table-group-divider">
+        {% for emprestimo in emprestimos %}
+            <tr>
+                <td> {{ emprestimo.id }} </td>
+                <td> {{ emprestimo.data }} </td>
+                <td> {{ emprestimo.credor }} </td>
+                <td> {{ emprestimo.devedor }} </td>
+                <td> {{ emprestimo.valor }} </td>
+                <td> {{ emprestimo.status }} </td>
+                <td><a href="{% url 'emprestimo' emprestimo.id %}"> Abrir </a></td>
+            </tr>
+        {% empty %}
+            <td colspan="7"> Não existem Emprestimos lançados </td>
+        {% endfor %}
+    </tbody>
+</table>

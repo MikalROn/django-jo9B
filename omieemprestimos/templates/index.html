@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block body %}  
+
+<div class='div-loja'>
+
+    <form class='form-dark' action="{% url 'cadastra_loja' %}" method="POST">
+        {% include '_form_loja.html' %}
+    </form>
+
+    <div class="mostrar-lojas">
+        <h2> Lojas cadastradas </h2>
+        <ul>
+            {% for loja in lojas %}
+                <li><a href="{% url 'lojas' loja.id %}"> {{ loja.nome }} </a></li>
+            {% empty %}
+                <li> Não existem lojas cadastradas </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+</div>
+
+<div class="div-emprestimos">
+    <form class="form-emprestimos" action="{% url 'lancar_emprestimo' %}" method="POST">
+        <h1>Lançar emprestimo</h1>
+        {% csrf_token %} 
+        {{ form_emprestimo }}
+        <input type="submit">
+    </form>
+
+    <div id='div-tabela' >
+        <h2> Emprestimos </h2>
+        {% include '_tabela_emprestimo.html' %}
+    </div>
+</div>
+
+{% endblock %}

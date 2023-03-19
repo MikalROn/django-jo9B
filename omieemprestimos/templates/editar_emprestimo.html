@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block body %}
+
+<form class='form-dark' action="{% url 'editar_emprestimo' emprestimo.id %}" method="POST">
+    {% include '_form_loja.html' %}
+</form>
+
+{% endblock %}

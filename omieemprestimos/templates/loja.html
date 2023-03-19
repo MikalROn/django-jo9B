@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block body %}
+    <a href="{% url 'index' %}">Home</a>
+    <h1>{{ loja.id }}-{{ loja.nome }}</h1>
+    <h2> Emprestou </h2>
+    {% include '_tabela_emprestimo.html' with emprestimos=emprestou  %}
+
+    <h2> Deve </h2>
+    {% include '_tabela_emprestimo.html' with emprestimos=deve  %}
+{% endblock %}

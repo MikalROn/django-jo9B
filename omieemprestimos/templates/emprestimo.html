@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+    <a href="{% url 'index' %}">Home</a>
+    <h1><b>{{ emprestimo.credor }}</b> emprestou para <b>{{ emprestimo.devedor }}</b></h1>
+    <ul>
+        <li>Data: {{ emprestimo.data }}</li>
+        <li>Valor: {{ emprestimo.valor }}</li>
+        <li>Status: {{ emprestimo.status }}</li>
+    </ul>
+    <a href="{% url 'editar_emprestimo' emprestimo.id %}">Editar</a>
+    <a href="{% url 'cancela_emprestimo' emprestimo.id %}">Cancelar</a>
+    {% if  emprestimo.status == 'DEVENDO' %}
+        <a href="{% url 'pagar_emprestimo' emprestimo.id %}">Lançar pagamento</a>
+    {% endif %}
+{% endblock %}
