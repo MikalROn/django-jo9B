@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 CHAT_ID = '-979899802'
-BOT_ATIVADO = False
+BOT_ATIVADO = True
 API_ID = os.getenv('TELEGRAM_API_ID')
 API_HASH = os.getenv('TELEGRAM_API_HASH')
 BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
