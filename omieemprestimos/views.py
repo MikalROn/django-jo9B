@@ -14,6 +14,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# bot desligado
 CHAT_ID = '-979899802'
 BOT_ATIVADO = False
 API_ID = os.getenv('TELEGRAM_API_ID')
